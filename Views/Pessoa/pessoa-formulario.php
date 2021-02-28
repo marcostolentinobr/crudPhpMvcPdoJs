@@ -1,5 +1,5 @@
 <label>Nome:</label>
-<input type="text" name="NOME" value="<?= @$this->dado['NOME'] ?>" autofocus minlength="3" maxlength="50" required><br>
+<input type="text" name="NOME" value="<?= @$this->dado['NOME'] ?>" onblur="return validaNomeSobrenome(NOME)" autofocus minlength="3" maxlength="50" required><br>
 <label>Curso:</label>
 <select name="ID_CURSO" required>
     <option></option>
