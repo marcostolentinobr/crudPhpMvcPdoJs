@@ -1,3 +1,3 @@
 <?
 
-echo "$dado[NOME] ($dado[PONTO])";
+echo $dado['NOME_PONTO'];

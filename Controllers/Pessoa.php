@@ -25,20 +25,33 @@ class Pessoa extends Controller {
                 $extencao = strtolower(pathinfo($nome, PATHINFO_EXTENSION));
                 $arq_local = RAIZ . "/arquivos/{$chave}_" . date('Ymd_His') . "_$ind.$extencao";
                 if (!move_uploaded_file($ARQ['tmp_name'][$ind], $arq_local)) {
-                    echo 'Cadastrado mais talvez haja arquivos que não foi enviado, tente novamente.';
+                    echo '
+                        <h1 style="color: red">
+                            Cadastrado mais talvez haja arquivos que não foi enviado, tente novamente.
+                        </h1>
+                    ';
                 }
             }
         }
+        
+        $this->PessoaFormacao = instanciaModel('PessoaFormacao');
+        
+        //EXCLUIR
+        if ($this->ok && $this->acaoDescricaoPost == 'Excluir') {
+            $this->PessoaFormacao->excluir();
+        }
 
+        //instancia de curso e formação
         $this->Curso = instanciaModel('Curso');
         $this->cursoLista = $this->Curso->listar([], true);
-
-        $this->setFormacao();
+        
         //Quando for para editar setar os dados de formação vinculado a pessoa
+        $this->setFormacao();
         if ($this->acaoDescricaoPost == 'Editar' && $this->where) {
             $this->setPessoaFormacao($this->where);
         }
 
+        //Excluir arquivo
         foreach ($_POST as $dado => $valor) {
             if (strpos(base64_decode($dado), 'XCLUIR-' . CHAVE) == 1) {
                 $ARQ = str_replace('EXCLUIR-', '', base64_decode($dado));
@@ -59,7 +72,6 @@ class Pessoa extends Controller {
     }
 
     public function setPessoaFormacao($where) {
-        $this->PessoaFormacao = instanciaModel('PessoaFormacao');
         $pessoaFormacaoLista = $this->PessoaFormacao->listar($where, true);
         foreach ($pessoaFormacaoLista as $pessoaFormacao) {
             $this->pessoaFormacaoLista[$pessoaFormacao['ID_FORMACAO']] = $pessoaFormacao;

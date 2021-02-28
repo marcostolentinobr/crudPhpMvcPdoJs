@@ -8,7 +8,7 @@ class Model {
     protected $erro;
     public $linhasTotal;
     public $linhasTotalMomento;
-    public $pagina_total = 3;
+    public $pagina_total = 8;
     public $buscarCampos = [];
     public $paginacao = true;
 
@@ -78,7 +78,7 @@ class Model {
                 @$whereBuscar[] = " $campo LIKE '%$buscar%'";
             }
         }
-        
+
         if ($this->paginacao) {
             if (isset($whereBuscar)) {
                 $whereBuscar = implode(' OR ', $whereBuscar);

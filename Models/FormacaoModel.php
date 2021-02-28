@@ -10,7 +10,7 @@ class FormacaoModel extends Model {
     protected function dado($dado, $metodo = __METHOD__) {
 
         //NOME - Obrigatório e até 100 caracteres
-        $this->dado['NOME'] = ucwords(mb_strtolower(campo($dado['NOME'].'S')));
+        $this->dado['NOME'] = ucwords(mb_strtolower(campo($dado['NOME'],'S')));
         $this->campoValidacao('NOME');
 
         //PONTO - Obrigatório e até 100 caracteres
@@ -40,7 +40,7 @@ class FormacaoModel extends Model {
     public function listar($valores = [], $todos = false) {
         $sql = "
             SELECT F.*,
-                   CONCAT(F.NOME,' (', F.PONTO, ')') AS NOME,  
+                   CONCAT(F.NOME,' (', F.PONTO, ')') AS NOME_PONTO,  
                    (SELECT COUNT(*) FROM PESSOA_FORMACAO PF WHERE PF.ID_FORMACAO = F.ID_FORMACAO) AS ITEM_UTILIZADO
               FROM FORMACAO F 
         ";

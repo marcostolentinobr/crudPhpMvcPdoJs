@@ -10,10 +10,10 @@ class Usuario extends Controller {
         $this->dado = getSession();
         $this->requireForm('senha', 'Alterar');
     }
-    
-    protected function executaPosAcao(){
-        if($this->ok == 1){
-         setSession('SENHA',$this->dado['SENHA']);   
+
+    protected function executaPosAcao() {
+        if ($this->ok == 1 && getSession()) {
+            setSession('SENHA', $this->dado['SENHA']);
         }
     }
 

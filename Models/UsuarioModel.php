@@ -34,6 +34,7 @@ class UsuarioModel extends Model {
 
             //CPF - Já existe?
             if (!$this->erro && $metodo != 'Model::alterar') {
+                $this->paginacao = false;
                 $sql = "SELECT CPF FROM USUARIO WHERE CPF = '{$this->dado['CPF']}' LIMIT 1";
                 if ($this->listarRetorno($sql)) {
                     $this->erro['CPF'] = 'Já cadastrado';

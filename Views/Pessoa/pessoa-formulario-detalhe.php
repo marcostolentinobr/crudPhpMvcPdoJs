@@ -17,6 +17,7 @@ if ($this->pessoaFormacaoLista) {
 
 echo "<br><b>Pontos:</b>{$this->dado['FORMACAO_PONTOS']}<br>";
 echo "<b>Obervação:</b>{$this->dado['OBSERVACAO']}<BR>";
+echo "<br><small style='color: blue'><b>Cadastrado por: </b>{$this->dado['USU_NOME']}</small><BR>";
 
 echo '<br><b>Títulos:</b><br>';
 foreach (mArquivosListar(RAIZ . "/arquivos/" . CHAVE) as $nome => $arquivo) {
