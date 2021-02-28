@@ -1,4 +1,4 @@
 <label>CPF:</label>
-<input type="number" name="CPF" autofocus minlength="11" maxlength="11" required>
+<input type="text" id="CPF" name="CPF" autofocus minlength="14" maxlength="14" onkeypress="return mascaraCPF(CPF)" required>
 <label>Senha:</label>
 <input type="password" name="SENHA" autofocus minlength="1" maxlength="20" required>

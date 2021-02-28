@@ -1,5 +1,6 @@
-<? require_once 'config.php' ?>
-
+<? require_once 'config.php'; ?>
+<base href="<?= URL ?>" />
+<script src="script.js"></script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <style>
     label {
