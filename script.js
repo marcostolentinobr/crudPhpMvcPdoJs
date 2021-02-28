@@ -1,3 +1,18 @@
+function isTipo(pVal) {
+    var reTipo = /[A-z][ ][A-z]/;
+    return reTipo.test(pVal);
+}
+
+function validaNomeSobrenome(nome) {
+    if (!isTipo(nome.value)) {
+        alert("Obrigatório nome e sobrenome");
+        nome.focus();
+        return false;
+    }
+
+    return true;
+}
+
 //adiciona mascara ao CPF
 function mascaraCPF(cpf) {
     if (mascaraInteiro(cpf) == false) {
