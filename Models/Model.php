@@ -121,9 +121,9 @@ class Model {
         return $this->prepareExecute($sql, $valores);
     }
 
-    public function alterar() {
-        $where = [$this->chave => $_POST[$this->chave]];
-        $dado = coalesce($this->dado, $this->dado($_POST, __METHOD__));
+    public function alterar($where = [], $dado = []) {
+        $where = coalesce($where, [$this->chave => $_POST[$this->chave]]);
+        $dado = coalesce($dado, $this->dado, $this->dado($_POST, __METHOD__));
         $dadoAlterar = $this->dadosQry(false, $dado);
         $whereAlterar = $this->dadosQry(false, $where);
         $sql = "UPDATE $this->tabela SET " . implode(", ", $dadoAlterar['sintaxe']);
@@ -133,6 +133,9 @@ class Model {
 
     public function listar($valores = [], $todos = false) {
         $sql = "SELECT *, 0 AS ITEM_UTILIZADO FROM $this->tabela";
+        if (!$this->order) {
+            $this->addOrder($this->chave . ' DESC ');
+        }
         return $this->listarRetorno($sql, $valores, $todos);
     }
 

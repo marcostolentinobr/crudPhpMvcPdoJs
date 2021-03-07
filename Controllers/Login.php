@@ -2,10 +2,12 @@
 
 class Login extends Controller {
 
-    protected $descricao = '';
+    protected $descricao = 'Login';
     protected $acaoDescricao = 'Acessar';
     protected $listarMostrar = false;
     protected $listarLargura = 200;
+    protected $mostrarDescricaoAcao = false;
+    protected $formularioLargura = 0;
 
     public function sair($redirecionar = true) {
         session_destroy();

@@ -10,6 +10,8 @@ define('DB_CHARSET', 'utf8');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
+define('TITULO', 'Exemplo de Sistema com PHP e JS');
+
 //Funções
 require_once 'funcoes.php';
 
@@ -30,11 +32,3 @@ $protocolo = (strpos(strtolower($_SERVER['SERVER_PROTOCOL']), 'https') === false
 $url = $protocolo . '://' . $_SERVER['HTTP_HOST'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
 define('URL', $url);
 define('URL_ATUAL', URL . '/' . CLASSE . '/' . METODO);
-
-//Caso não exista usuario logado, logue antes
-if (@!$_SESSION['USUARIO'] && CLASSE != 'Login') {
-    //Pode acessar a classe usuário para cadastrar algum
-    if (CLASSE != 'Usuario') {
-        header('Location: ' . URL . 'Login/acessar');
-    }
-}
