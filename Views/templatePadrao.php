@@ -1,6 +1,6 @@
 <? require_once __DIR__ . '/mensagemAcao.php'; ?>
 <br>
-<table border="1" style="min-width: <?= $this->listarLargura ?>px">
+<table border="1" style="width: <?= $this->sistemaLargura ?>px">
     <tr style=" vertical-align: top">
         <? if ($this->listarMostrar) { ?>
             <td style="text-align: right; padding-right: 10px">
@@ -15,7 +15,7 @@
                 ?>
             </td>
         <? } ?>
-        <td style="padding-left: 10px; min-width: <?= $this->formularioLargura ?>px">
+        <td style="padding-left: 10px; width: <?= $this->formularioLargura ?>px">
             <? require_once 'tamplateFormulario.php' ?>
         </td>
     </tr>

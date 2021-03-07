@@ -3,7 +3,7 @@
 class Usuario extends Controller {
 
     protected $descricao = 'Usuário';
-    protected $listarLargura = 200;
+    protected $sistemaLargura = 200;
     protected $listarMostrar = false;
 
     public function alterarSenha() {

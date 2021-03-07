@@ -62,3 +62,15 @@ function mascaraInteiro() {
     }
     return true;
 }
+
+function excluir(form) {
+    event.preventDefault();
+    if (confirm('Confirma exclusão?')) {
+        var campo = document.createElement("input");
+        campo.setAttribute("type", 'hidden');
+        campo.setAttribute("name", 'ACAO');
+        campo.setAttribute("value", 'Excluir');
+        form.appendChild(campo);
+        form.submit();
+    }
+}

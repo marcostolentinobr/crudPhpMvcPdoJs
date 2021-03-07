@@ -13,8 +13,8 @@ class Controller {
     protected $acaoDescricao = 'Incluir';
     protected $ID_CHAVE;
     protected $listarMostrar = true;
-    protected $listarLargura = 800;
-    protected $formularioLargura = 490;
+    protected $sistemaLargura = 800;
+    protected $formularioLargura = 400;
     protected $arquivoForm = '';
     protected $botaoFormulario = true;
     protected $mostrarDescricaoAcao = true;
@@ -67,7 +67,7 @@ class Controller {
     }
 
     protected function executaPosAcao() {
-        
+     
     }
 
     protected function requireForm($arquivo, $acaoDescricao, $botaoFormulario = true) {

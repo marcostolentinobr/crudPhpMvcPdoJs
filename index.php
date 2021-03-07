@@ -10,7 +10,8 @@ if (@!$_SESSION['USUARIO'] && CLASSE != 'Login') {
 }
 ?>
 <title><?= TITULO ?></title>
-<link rel="shortcut icon" href="../imagens/favicon.ico">
+<base href="<?= URL ?>" />
+<script src="script.js"></script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <style>
     label {

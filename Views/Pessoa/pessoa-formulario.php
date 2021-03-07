@@ -1,5 +1,8 @@
-<label>Nome:</label>
-<input type="text" name="NOME" value="<?= @$this->dado['NOME'] ?>" onblur="return validaNomeSobrenome(NOME)" autofocus minlength="3" maxlength="50" required><br>
+<!-- NOME -->
+<? $campo = ['NOME', 'Nome', 50] ?>
+<label for="<?= $campo[0] ?>" ><?= $campo[1] ?></label>
+<input type="text" id="<?=$campo[0]?>"  name="<?=$campo[0]?>" value="<?= @$this->dado[$campo[0]] ?>" class="nomeSobrenome" onblur="return validaNomeSobrenome(NOME)" maxlength="<?=$campo[2]?>" equired minlength="3" autofocus><br>
+
 <label>Curso:</label>
 <select name="ID_CURSO" required>
     <option></option>
